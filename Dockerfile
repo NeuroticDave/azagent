@@ -23,10 +23,10 @@ RUN apt-get update \
         gnupg \
         lsb-release \
         docker.io \
+        python-pip \
         openssh-client
 
-RUN curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
-sudo chmod +x /usr/local/bin/docker-compose
+RUN pip install docker-compose
 
 WORKDIR /azp
 
