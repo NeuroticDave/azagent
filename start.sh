@@ -7,7 +7,12 @@ if [ -z "$AZP_URL" ]; then
 fi
 
 if [ -z "$AZP_DEPLOYPOOL" ]; then
-  echo 1>&2 "error: missing $AZP_DEPLOYPOOL environment variable"
+  echo 1>&2 "error: missing AZP_DEPLOYPOOL environment variable"
+  exit 1
+fi
+
+if [ -z "$AZP_PROJECT" ]; then
+  echo 1>&2 "error: missing AZP_PROJECT environment variable"
   exit 1
 fi
 
@@ -82,7 +87,8 @@ print_header "3. Configuring Azure Pipelines agent..."
   --url "$AZP_URL" \
   --auth PAT \
   --token $(cat "$AZP_TOKEN_FILE") \
-  --deploymentpoolname "$AZP_DEPLOYPOOL" 
+  --deploymentpoolname "$AZP_DEPLOYPOOL" \
+  --projectname "$AZP_PROJECT" \
   --work "${AZP_WORK:-_work}" \
   --replace \
   --acceptTeeEula & wait $!
