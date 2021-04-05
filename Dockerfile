@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+COPY --from=docker:20.10 /usr/local/bin/docker /usr/local/bin/
 
 # To make it easier for build and release pipelines to run apt-get,
 # configure apt to not require confirmation (assume the -y argument by default)
@@ -22,7 +23,6 @@ RUN apt-get update \
         curl \
         gnupg \
         lsb-release \
-        docker-ce-cli \
         openssh-client
 
 RUN curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
