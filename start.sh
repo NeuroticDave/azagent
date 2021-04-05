@@ -83,15 +83,14 @@ source ./env.sh
 print_header "3. Configuring Azure Pipelines agent..."
 
 ./config.sh --deploymentgroup \
-  --deploymentgroupname "$AZP_DEPLOYPOOL" \
+  --deploymentgroupname "$AZP_DEPLOYGRP" \
+  --acceptteeeula \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
   --url "$AZP_URL" \
   --auth PAT \
   --token $(cat "$AZP_TOKEN_FILE") \
   --projectname "$AZP_PROJECT" \
-  --work "${AZP_WORK:-_work}" \
-  --replace \
-  --acceptTeeEula & wait $!
+  --work "${AZP_WORK:-_work}" & wait $!
 
 print_header "4. Running Azure Pipelines agent..."
 
