@@ -82,22 +82,22 @@ source ./env.sh
 
 print_header "3. Configuring Azure Pipelines agent..."
 
-#./config.sh --deploymentpool \
-#  --deploymentgroupname "$AZP_DEPLOYPOOL" \
-#  --agent "${AZP_AGENT_NAME:-$(hostname)}" \
-#  --url "$AZP_URL" \
-#  --auth PAT \
-#  --token $(cat "$AZP_TOKEN_FILE") \
-#  --projectname "$AZP_PROJECT" \
-#  --work "${AZP_WORK:-_work}" \
-#  --replace \
-#  --acceptTeeEula & wait $!
+./config.sh --deploymentgroup \
+  --deploymentgroupname "$AZP_DEPLOYPOOL" \
+  --agent "${AZP_AGENT_NAME:-$(hostname)}" \
+  --url "$AZP_URL" \
+  --auth PAT \
+  --token $(cat "$AZP_TOKEN_FILE") \
+  --projectname "$AZP_PROJECT" \
+  --work "${AZP_WORK:-_work}" \
+  --replace \
+  --acceptTeeEula & wait $!
 
-#print_header "4. Running Azure Pipelines agent..."
+print_header "4. Running Azure Pipelines agent..."
 
-#trap 'cleanup; exit 130' INT
-#trap 'cleanup; exit 143' TERM
+trap 'cleanup; exit 130' INT
+trap 'cleanup; exit 143' TERM
 
 # To be aware of TERM and INT signals call run.sh
 # Running it with the --once flag at the end will shut down the agent after the build is executed
-#./run.sh & wait $!
+./run.sh & wait $!
