@@ -26,7 +26,7 @@ RUN apt-get update \
         python-pip \
         openssh-client
 
-RUN pip install docker-compose
+RUN yes | pip install docker-compose
 
 WORKDIR /azp
 
