@@ -87,7 +87,7 @@ print_header "3. Configuring Azure Pipelines agent..."
   --url "$AZP_URL" \
   --auth PAT \
   --token $(cat "$AZP_TOKEN_FILE") \
-  --deploymentpoolname "$AZP_DEPLOYPOOL" \
+  --deploymentgroupname "$AZP_DEPLOYPOOL" \
   --projectname "$AZP_PROJECT" \
   --work "${AZP_WORK:-_work}" \
   --replace \
