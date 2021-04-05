@@ -6,8 +6,8 @@ if [ -z "$AZP_URL" ]; then
   exit 1
 fi
 
-if [ -z "$AZP_DEPLOYPOOL" ]; then
-  echo 1>&2 "error: missing AZP_DEPLOYPOOL environment variable"
+if [ -z "$AZP_DEPLOYGRP" ]; then
+  echo 1>&2 "error: missing AZP_DEPLOYGRP environment variable"
   exit 1
 fi
 
