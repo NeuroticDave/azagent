@@ -16,7 +16,14 @@ RUN apt-get update \
         libicu60 \
         libunwind8 \
         netcat \
-        libssl1.0
+        libssl1.0 \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release \
+        docker.io \
+        docker-compose       
 
 WORKDIR /azp
 
