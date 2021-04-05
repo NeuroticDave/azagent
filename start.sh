@@ -83,11 +83,11 @@ source ./env.sh
 print_header "3. Configuring Azure Pipelines agent..."
 
 ./config.sh --deploymentpool \
+  --deploymentgroupname "$AZP_DEPLOYPOOL" \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
   --url "$AZP_URL" \
   --auth PAT \
   --token $(cat "$AZP_TOKEN_FILE") \
-  --deploymentgroupname "$AZP_DEPLOYPOOL" \
   --projectname "$AZP_PROJECT" \
   --work "${AZP_WORK:-_work}" \
   --replace \
