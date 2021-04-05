@@ -24,6 +24,7 @@ RUN apt-get update \
         lsb-release \
         docker.io \
         python-pip \
+        python-setuptools \
         openssh-client
 
 RUN yes | pip install docker-compose
