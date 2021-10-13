@@ -86,6 +86,7 @@ print_header "3. Configuring Azure Pipelines agent..."
   --deploymentgroupname "$AZP_DEPLOYGRP" \
   --acceptteeeula \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
+  --replace \
   --url "$AZP_URL" \
   --auth PAT \
   --token $(cat "$AZP_TOKEN_FILE") \
